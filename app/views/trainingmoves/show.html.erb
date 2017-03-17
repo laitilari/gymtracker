@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @trainingmove.move_id %>
+</p>
+
+<p>
+  <strong>Training:</strong>
+  <%= @trainingmove.training_id %>
+</p>
+
+<%= link_to 'Edit', edit_trainingmove_path(@trainingmove) %> |
+<%= link_to 'Back', trainingmoves_path %>
