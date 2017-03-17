@@ -1,2 +1,2 @@
 # gymtracker
-Follow your weight lifting progress - stay motivated!
+Follow your weight lifting progress.
