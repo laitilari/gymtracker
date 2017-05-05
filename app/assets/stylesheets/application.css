@@ -13,8 +13,15 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
 
  .navibar {
      padding: 10px;
      background: #EFEFEF;
  }
+=======
+ .navibar {
+    padding: 10px;
+    background: #EFEFEF;
+}
+>>>>>>> b09b28f5dd2616e45591eeb5aa7706e8efaf805b

@@ -7,13 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navibar">
+    <%= link_to 'moves', moves_path %>
+    <%= link_to 'users', users_path %>
+    |
+    <% if current_user %>
+      <%= link_to current_user.username, current_user %>
+      <%= link_to 'sign out', signout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% else %>
+        <%= link_to 'sign in', signin_path %>
+        <%= link_to 'sign up', signup_path %>
+    <% end %>
 
+<<<<<<< HEAD
   <div class="navibar">
     <%= link_to 'moves', moves_path %>
     <%= link_to 'users', users_path %>
   </div>
 
 <%= yield %>
+=======
+  </div>
+
+  <%= yield %>
+>>>>>>> b09b28f5dd2616e45591eeb5aa7706e8efaf805b
 
 </body>
 </html>
