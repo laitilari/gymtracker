@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317160935) do
+ActiveRecord::Schema.define(version: 20170505113446) do
 
   create_table "moves", force: :cascade do |t|
     t.string   "name"
@@ -27,18 +27,13 @@ ActiveRecord::Schema.define(version: 20170317160935) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "trainings", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.boolean  "admin"
     t.boolean  "blocked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end

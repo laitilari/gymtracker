@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
   resources :trainingmoves
-  resources :trainings
   resources :users
   resources :moves
-<<<<<<< HEAD
-  root 'moves#index'
-=======
   resource :session, only: [:new, :create, :destroy]
   root 'moves#index'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
->>>>>>> b09b28f5dd2616e45591eeb5aa7706e8efaf805b
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
