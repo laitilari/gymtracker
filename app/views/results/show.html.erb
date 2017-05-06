@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @result.move.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @result.user.username %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @result.weight %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @result.reps %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

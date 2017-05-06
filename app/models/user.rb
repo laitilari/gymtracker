@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true,
                      length: { minimum: 3 }
   validates :password, length: { minimum: 4 }
-  has_many :trainingmoves
+  has_many :results, dependent: :destroy
 
 end
