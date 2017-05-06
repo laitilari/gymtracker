@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20170505113446) do
 
   create_table "trainingmoves", force: :cascade do |t|
     t.integer  "move_id"
-    t.integer  "training_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
