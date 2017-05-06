@@ -1,0 +1,16 @@
+language: ruby
+
+rvm:
+ - 2.3.1
+
+script:
+ - bundle exec rake db:migrate --trace
+ - RAILS_ENV=test bundle exec rake db:migrate --trace
+ - bundle exec rake db:test:prepare
+ - bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  app: mighty-spire-77079
+  api_key:
+    secure: 858d8452-4eb3-4e19-83c9-93ca0cee48f4
+  run: "rake db:migrate"
