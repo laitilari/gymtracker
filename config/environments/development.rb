@@ -36,7 +36,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.secret_key_base = ENV["deve"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
