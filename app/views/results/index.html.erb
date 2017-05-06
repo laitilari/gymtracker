@@ -22,7 +22,6 @@
         <td><%= result.reps %></td>
         <td><%= link_to 'Show', result %></td>
         <% if result.user == current_user %>
-
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

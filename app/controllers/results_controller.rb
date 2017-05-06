@@ -20,6 +20,7 @@ class ResultsController < ApplicationController
 
   # GET /results/1/edit
   def edit
+    @moves = Move.all
   end
 
   # POST /results
