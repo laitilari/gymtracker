@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @move.name %>
-</p>
+</h1>
 
 <p>
-  <strong>Description:</strong>
-  <%= @move.description %>
+  <%= @move.description + '.' %>
 </p>
 
-<%= link_to 'Edit', edit_move_path(@move) %> |
-<%= link_to 'Back', moves_path %>
+<% if current_user %>
+<%= link_to 'Edit', edit_move_path(@move), class:'btn btn-info' %> |
+<%= link_to 'Destroy', @move, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>|
+<% end %>
+<%= link_to 'Back', moves_path, class:'btn btn-default' %>

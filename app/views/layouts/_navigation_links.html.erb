@@ -1,0 +1,12 @@
+<li><%= link_to 'Moves', moves_path %></li>
+<li><%= link_to 'Results', results_path %></li>
+<li><%= link_to 'Users', users_path %></li>
+
+<% if not current_user.nil? %>
+    <li><%= link_to current_user.username, current_user %></li>
+    <li><%= link_to 'New Result', new_result_path %></li>
+    <li><%= link_to 'signout', signout_path, method: :delete %></li>
+<% else %>
+    <li><%= link_to 'signin', signin_path %></li>
+    <li><%= link_to 'signup', signup_path %></li>
+<% end %>

@@ -2,7 +2,8 @@
 
 <h1>Moves</h1>
 
-<table>
+<table class="table table-hover">
+
   <thead>
     <tr>
       <th>Name</th>
@@ -16,8 +17,6 @@
       <tr>
         <td><%= link_to move.name, move %></td>
         <td><%= move.description %></td>
-        <td><%= link_to 'Edit', edit_move_path(move) %></td>
-        <td><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +24,6 @@
 
 <br>
 
-<%= link_to 'New Move', new_move_path %>
+<% if current_user %>
+<%= link_to 'New Move', new_move_path, class:'btn btn-primary' %>
+<% end %>

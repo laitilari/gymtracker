@@ -2,12 +2,12 @@
 
 <p>
   <strong>Move:</strong>
-  <%= @result.move.name %>
+  <%= link_to @result.move.name, @result.move %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @result.user.username %>
+  <%= link_to @result.user.username, @result.user %>
 </p>
 
 <p>
@@ -20,5 +20,8 @@
   <%= @result.reps %>
 </p>
 
+<% if @result.user == current_user %>
 <%= link_to 'Edit', edit_result_path(@result) %> |
-<%= link_to 'Back', results_path %>
+<%= link_to 'Destroy', @result, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<%= link_to 'Back', :back %>

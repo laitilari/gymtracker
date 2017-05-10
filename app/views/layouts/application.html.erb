@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ratebeer</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="navibar">
-    <%= link_to 'Moves', moves_path %>
-    <%= link_to 'Users', users_path %>
-    <%= link_to 'Results', results_path %>
-    |
-    <% if current_user %>
-      <%= link_to 'sign out', signout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% else %>
-      <%= link_to 'sign in', signin_path %>
-      <%= link_to 'sign up', signup_path %>
-    <% end %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Gymtracker" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Gymtracker" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <header>
+    <%= render 'layouts/navigation' %>
+  </header>
 
-  <%= yield %>
+  <main role="main" class=".container">
+    <%= render 'layouts/messages' %>
 
+    <div class="row">
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      <div class="col-md-4">
+        <img src="https://www.bodybuilding.com/fun/images/2014/arnold-schwarzeneggers-8-best-training-principles-musclepharm-arnold-series-graphic-1.jpg" width="400">
+      </div>
+    </div>
+
+  </main>
 </body>
 </html>
