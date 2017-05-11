@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
   # GET /results
@@ -58,7 +59,7 @@ class ResultsController < ApplicationController
   # DELETE /results/1
   # DELETE /results/1.json
   def destroy
-    @result.destroy
+    @result.destroy if current_user = @result.user
     respond_to do |format|
       format.html { redirect_to results_url, notice: 'Result was successfully destroyed.' }
       format.json { head :no_content }

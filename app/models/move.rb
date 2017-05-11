@@ -9,7 +9,7 @@ class Move < ActiveRecord::Base
   end
 
   def averageReps
-  results.map{ |r| r.reps }.sum / results.count
+  results.map{ |r| r.reps }.sum / results.count.to_f
   end
 
   def topWeight

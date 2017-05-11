@@ -20,8 +20,10 @@
       <tr>
         <td><%= link_to user.username, user %></td>
         <td><%= user.results.count %></td>
+        <% if user.results.any? %>
         <td><%= link_to user.results.last.move.name, user.results.first %></td>
         <td><%= link_to user.topMove.move.name, user.topMove.move %></td>
+        <% end %>
         <td><%= user.gymList.join ' ' %></td>
     <% end %>
   </tbody>

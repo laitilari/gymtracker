@@ -1,4 +1,5 @@
 class MovesController < ApplicationController
+  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_move, only: [:show, :edit, :update, :destroy]
 
   # GET /moves

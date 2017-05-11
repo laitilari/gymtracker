@@ -1,4 +1,5 @@
 class GymsController < ApplicationController
+  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_gym, only: [:show, :edit, :update, :destroy]
 
   # GET /gyms

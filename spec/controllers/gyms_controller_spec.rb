@@ -41,28 +41,7 @@ RSpec.describe GymsController, type: :controller do
   # GymsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      gym = Gym.create! valid_attributes
-      get :index, {}, valid_session
-      expect(response).to be_success
-    end
-  end
 
-  describe "GET #show" do
-    it "returns a success response" do
-      gym = Gym.create! valid_attributes
-      get :show, {:id => gym.to_param}, valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, {}, valid_session
-      expect(response).to be_success
-    end
-  end
 
   describe "GET #edit" do
     it "returns a success response" do
