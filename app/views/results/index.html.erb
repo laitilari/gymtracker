@@ -19,9 +19,11 @@
     <% @moves.each do |move| %>
       <tr>
         <td><%= link_to move.name, move %></td>
+        <% if move.results.any? %>
         <td><%= move.topWeight %></td>
         <td><%= move.averageWeight %></td>
         <td><%= move.averageReps %></td>
+        <% end %>
     <% end %>
   </tbody>
 </table>
@@ -42,9 +44,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
+        <% if user.results.any? %>
         <td><%= user.results.count %></td>
         <td><%= user.topMove.move.name %></td>
-        <td><%= user.gymList.join ' ' %></td>
+        <% end %>
+        <td><%= user.gymList.join ' ' %><td>
       </tr>
     <% end %>
   </tbody>

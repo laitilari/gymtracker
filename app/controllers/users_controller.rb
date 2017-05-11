@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
