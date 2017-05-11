@@ -1,0 +1,28 @@
+<h1>Gyms</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Founded</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gyms.each do |gym| %>
+      <tr>
+        <td><%= link_to gym.name, gym %></td>
+        <td><%= gym.founded %></td>
+        <td><%= gym.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user %>
+<%= link_to 'New Gym', new_gym_path, class: "btn btn-success" %>
+<% end %>

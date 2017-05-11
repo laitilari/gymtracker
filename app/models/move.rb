@@ -3,4 +3,17 @@ class Move < ActiveRecord::Base
                      length: { minimum: 3 }
   has_many :results, dependent: :destroy
   has_many :users, through: :trainingmoves
+
+  def averageWeight
+  results.map{ |r| r.weight }.sum / results.count.to_f
+  end
+
+  def averageReps
+  results.map{ |r| r.reps }.sum / results.count
+  end
+
+  def topWeight
+  results.map{ |r| r.weight }.max
+  end
+
 end

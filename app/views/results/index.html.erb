@@ -1,29 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Results</h1>
+<h2>Statistics</h2>
+
 
 <table class="table table-hover">
 
   <thead>
     <tr>
       <th>Move</th>
-      <th>User</th>
-      <th>Weight</th>
-      <th>Reps</th>
+      <th>Top weight</th>
+      <th>Average weight</th>
+      <th>Average repetitions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @results.each do |result| %>
+    <% @moves.each do |move| %>
       <tr>
-        <td><%= link_to result.move.name, result.move %></td>
-        <td><%= link_to result.user.username, result.user %></td>
-        <td><%= result.weight %></td>
-        <td><%= result.reps %></td>
-        <td><%= link_to 'Show', result, class:'btn btn-default' %></td>
+        <td><%= link_to move.name, move %></td>
+        <td><%= move.topWeight %></td>
+        <td><%= move.averageWeight %></td>
+        <td><%= move.averageReps %></td>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<h4>Most active users</h4>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Result count</th>
+      <th>Top move</th>
+      <th>Gym(s)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user %></td>
+        <td><%= user.results.count %></td>
+        <td><%= user.topMove.move.name %></td>
+        <td><%= user.gymList.join ' ' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>Recent results</h4>
+
+<ul>
+  <% @results.each do |r| %>
+    <li>
+      <%= link_to r.move.name, r %> :
+      <%= link_to r.user.username, r.user %>
+    </li>
+  <% end %>
+</ul>

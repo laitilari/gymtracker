@@ -1,0 +1,8 @@
+<h1>Editing Gym</h1>
+
+<%= render 'form' %>
+
+<% if current_user.admin? %>
+<%= link_to 'Destroy', @gym, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>
+<%= link_to 'Back', gyms_path %>

@@ -21,7 +21,7 @@
 </p>
 
 <% if @result.user == current_user %>
-<%= link_to 'Edit', edit_result_path(@result) %> |
-<%= link_to 'Destroy', @result, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_result_path(@result), class: "btn btn-info" %>
+<%= link_to 'Delete', @result, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 <% end %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', :back, class: "btn btn-default" %>

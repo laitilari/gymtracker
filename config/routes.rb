@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources :gyms
   resources :results
   resources :trainingmoves
   resources :users

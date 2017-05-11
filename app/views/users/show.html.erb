@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1 style="display:inline">
   <%= @user.username %>
 </h1>
-<% if current_user %>
+<% if current_user == @user %>
 <%= link_to 'Edit', edit_user_path(@user)%>
 <% end %>
 
@@ -38,6 +36,5 @@
 <p> No results yet </p>
 
 <% end %>
-
 
 <%= link_to 'Back', users_path, class:'btn btn-default' %>

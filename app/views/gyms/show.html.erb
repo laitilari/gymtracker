@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gym.name %>
+</p>
+
+<p>
+  <strong>Founded:</strong>
+  <%= @gym.founded %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @gym.address %>
+</p>
+
+<% if current_user %>
+  <% if current_user.gyms.include? @gym %>
+    <%= form_for(@membership, method: "delete") do |f| %>
+      <%= f.hidden_field :gym_id %>
+      <%= f.submit value: "Leave gym", class: "btn btn-danger" %>
+    <% end %>
+  <% else %>
+    <%= form_for(@membership) do |f| %>
+      <%= f.hidden_field :gym_id %>
+      <%= f.submit value:"Join gym", class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+<% end %>

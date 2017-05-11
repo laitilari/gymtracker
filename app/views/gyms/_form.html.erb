@@ -1,0 +1,29 @@
+<%= form_for(@gym) do |f| %>
+  <% if @gym.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gym.errors.count, "error") %> prohibited this gym from being saved:</h2>
+
+      <ul>
+      <% @gym.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :founded %><br>
+    <%= f.number_field :founded %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
