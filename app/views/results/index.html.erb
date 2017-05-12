@@ -15,6 +15,7 @@
     </tr>
   </thead>
 
+  <% if @moves.any? %>
   <tbody>
     <% @moves.each do |move| %>
       <tr>
@@ -27,6 +28,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <h4>Most active users</h4>
 
@@ -40,6 +42,7 @@
     </tr>
   </thead>
 
+<% if @users.any? %>
   <tbody>
     <% @users.each do |user| %>
       <tr>
@@ -53,9 +56,11 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <h4>Recent results</h4>
 
+<% if @results.any? %>
 <ul>
   <% @results.each do |r| %>
     <li>
@@ -63,4 +68,5 @@
       <%= link_to r.user.username, r.user %>
     </li>
   <% end %>
+<% end %>
 </ul>
