@@ -11,11 +11,13 @@ class GymsController < ApplicationController
   # GET /gyms/1
   # GET /gyms/1.json
   def show
-    if current_user.gyms.include? @gym
-      @membership = current_user.memberships.find{ |m| m.gym == @gym }
-    else
-      @membership = Membership.new
-      @membership.gym = @gym
+    if current_user
+      if current_user.gyms.include? @gym
+        @membership = current_user.memberships.find{ |m| m.gym == @gym }
+      else
+        @membership = Membership.new
+        @membership.gym = @gym
+      end
     end
   end
 
