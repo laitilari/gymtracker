@@ -29,18 +29,23 @@ RSpec.describe ResultsController, type: :controller do
   # Result. As you add validations to Result, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {move_id: 1, user_id: 1, weight: 10, reps: 10}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {move_id: 1, user_id: 1, weight: -5, reps: 10}
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ResultsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {user_id: 1} }
 
+  let!(:user) { FactoryGirl.create :user }
+
+  before :each do
+     allow(controller).to receive_messages(:current_user => user)
+  end
   describe "GET #index" do
     it "returns a success response" do
       result = Result.create! valid_attributes
@@ -90,14 +95,14 @@ RSpec.describe ResultsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {move_id: 1, user_id: 1, weight: 10, reps: 9}
       }
 
       it "updates the requested result" do
         result = Result.create! valid_attributes
         put :update, {:id => result.to_param, :result => new_attributes}, valid_session
         result.reload
-        skip("Add assertions for updated state")
+        expect(result.reps).to eq(9)
       end
 
       it "redirects to the result" do

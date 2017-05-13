@@ -12,12 +12,12 @@ RSpec.describe "gyms/index", type: :view do
     assign(:gyms, [
       Gym.create!(
         :name => "Name",
-        :founded => 2,
+        :founded => 1888,
         :address => "Address"
       ),
       Gym.create!(
-        :name => "Name",
-        :founded => 2,
+        :name => "Nimi",
+        :founded => 1888,
         :address => "Address"
       )
     ])
@@ -25,8 +25,9 @@ RSpec.describe "gyms/index", type: :view do
 
   it "renders a list of gyms" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => "Name".to_s, :count => 1
+    assert_select "tr>td", :text => "Nimi".to_s, :count => 1
+    assert_select "tr>td", :text => 1888.to_s, :count => 2
     assert_select "tr>td", :text => "Address".to_s, :count => 2
   end
 end

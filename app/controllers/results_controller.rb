@@ -30,6 +30,7 @@ class ResultsController < ApplicationController
   # POST /results.json
   def create
     @result = Result.new(result_params)
+    @moves = Move.all
     @result.user_id = current_user.id
     respond_to do |format|
       if @result.save

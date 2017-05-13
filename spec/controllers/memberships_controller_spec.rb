@@ -29,7 +29,7 @@ RSpec.describe MembershipsController, type: :controller do
   # Membership. As you add validations to Membership, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+      {user_id: 1, gym_id:1}
   }
 
   let(:invalid_attributes) {
@@ -39,8 +39,12 @@ RSpec.describe MembershipsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # MembershipsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {user_id: 1} }
 
+  let!(:user) { FactoryGirl.create :user }
+  before :each do
+     allow(controller).to receive_messages(:current_user => user)
+  end
   describe "GET #index" do
     it "returns a success response" do
       membership = Membership.create! valid_attributes
@@ -67,14 +71,7 @@ RSpec.describe MembershipsController, type: :controller do
 
       it "redirects to the created membership" do
         post :create, {:membership => valid_attributes}, valid_session
-        expect(response).to redirect_to(Membership.last)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, {:membership => invalid_attributes}, valid_session
-        expect(response).to be_success
+        expect(response).to redirect_to(user)
       end
     end
   end
@@ -82,28 +79,20 @@ RSpec.describe MembershipsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {user_id: 1, gym_id:2}
       }
 
       it "updates the requested membership" do
         membership = Membership.create! valid_attributes
         put :update, {:id => membership.to_param, :membership => new_attributes}, valid_session
         membership.reload
-        skip("Add assertions for updated state")
+        expect(membership.gym_id).to eq(2)
       end
 
       it "redirects to the membership" do
         membership = Membership.create! valid_attributes
         put :update, {:id => membership.to_param, :membership => valid_attributes}, valid_session
         expect(response).to redirect_to(membership)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        membership = Membership.create! valid_attributes
-        put :update, {:id => membership.to_param, :membership => invalid_attributes}, valid_session
-        expect(response).to be_success
       end
     end
   end
@@ -119,7 +108,7 @@ RSpec.describe MembershipsController, type: :controller do
     it "redirects to the memberships list" do
       membership = Membership.create! valid_attributes
       delete :destroy, {:id => membership.to_param}, valid_session
-      expect(response).to redirect_to(memberships_url)
+      expect(response).to redirect_to(gyms_url)
     end
   end
 

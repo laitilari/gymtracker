@@ -28,22 +28,26 @@ RSpec.describe GymsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Gym. As you add validations to Gym, be sure to
   # adjust the attributes here as well.
+
   let(:valid_attributes) {
-    [skip("Add a hash of attributes valid for your model")]
+    {name: "gymi", founded: 2000, address: "osoite"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: "e", founded: 1000, address: "os"}
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # GymsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {user_id: 1} }
 
-
-
+  let!(:user) { FactoryGirl.create :user }
+  before :each do
+     allow(controller).to receive_messages(:current_user => user)
+  end
   describe "GET #edit" do
+
     it "returns a success response" do
       gym = Gym.create! valid_attributes
       get :edit, {:id => gym.to_param}, valid_session
@@ -76,14 +80,14 @@ RSpec.describe GymsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "gymi", founded: 2001, address: "osoite"}
       }
 
       it "updates the requested gym" do
         gym = Gym.create! valid_attributes
         put :update, {:id => gym.to_param, :gym => new_attributes}, valid_session
         gym.reload
-        skip("Add assertions for updated state")
+        expect(gym.founded).to eq(2001)
       end
 
       it "redirects to the gym" do
