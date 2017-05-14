@@ -49,7 +49,7 @@
         <td><%= link_to user.username, user %></td>
         <% if user.results.any? %>
         <td><%= user.results.count %></td>
-        <td><%= user.topMove.move.name %></td>
+        <td><%= user.topMove.name %></td>
         <% end %>
         <td><%= user.gymList.join ' ' %><td>
       </tr>

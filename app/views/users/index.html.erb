@@ -22,7 +22,7 @@
         <td><%= user.results.count %></td>
         <% if user.results.any? %>
         <td><%= link_to user.results.last.move.name, user.results.first %></td>
-        <td><%= link_to user.topMove.move.name, user.topMove.move %></td>
+        <td><%= link_to user.topMove.name, user.topMove %></td>
         <% end %>
         <td><%= user.gymList.join ' ' %></td>
     <% end %>

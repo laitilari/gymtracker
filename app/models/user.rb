@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   has_many :gyms, through: :memberships
 
   def topMove
-  freq = results.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-  results.max_by { |v| freq[v] }
+  moves = results.map{|r| r.move}
+  freq = moves.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+  moves.max_by { |v| freq[v] }
   end
 
   def gymList
