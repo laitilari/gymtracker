@@ -32,7 +32,7 @@ class ResultsController < ApplicationController
   def create
     @result = Result.new(result_params)
     @moves = Move.all
-    @result.user_id = current_user.id
+    @result.user_id == current_user.id
     respond_to do |format|
       if @result.save
         format.html { redirect_to @result, notice: 'Result was successfully created.' }
@@ -61,7 +61,7 @@ class ResultsController < ApplicationController
   # DELETE /results/1
   # DELETE /results/1.json
   def destroy
-    @result.destroy if current_user = @result.user
+    @result.destroy if current_user == @result.user
     respond_to do |format|
       format.html { redirect_to results_url, notice: 'Result was successfully destroyed.' }
       format.json { head :no_content }
