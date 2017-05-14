@@ -2,6 +2,8 @@
 [![Code Climate](https://codeclimate.com/github/laitilari/gymtracker.png)](https://codeclimate.com/github/laitilari/gymtracker)
 [![Coverage Status](https://coveralls.io/repos/github/laitilari/gymtracker/badge.svg?branch=master)](https://coveralls.io/github/laitilari/gymtracker?branch=master)
 
+https://gymtrackerrailsapp.herokuapp.com/
+
 # Gymtracker
 
 Gymtracker is an app for weightlifters to keep score about their results and to compare them to the results of other users.
