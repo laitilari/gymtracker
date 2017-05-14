@@ -5,4 +5,6 @@ class Result < ActiveRecord::Base
                                       less_than_or_equal_to: 900}
   belongs_to :user
   belongs_to :move
+
+  scope :recent, -> { order(created_at: :desc).limit(5) }
 end

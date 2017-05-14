@@ -62,7 +62,7 @@
 
 <% if @results.any? %>
 <ul>
-  <% @results.each do |r| %>
+  <% @resultsRecent.each do |r| %>
     <li>
       <%= link_to r.move.name, r %> :
       <%= link_to r.user.username, r.user %>

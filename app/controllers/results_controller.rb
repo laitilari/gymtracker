@@ -6,6 +6,7 @@ class ResultsController < ApplicationController
   # GET /results.json
   def index
     @results = Result.all
+    @resultsRecent = Result.recent
     @moves = Move.all
     @users = User.all
   end
