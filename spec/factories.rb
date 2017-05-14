@@ -11,8 +11,18 @@ FactoryGirl.define do
     address "osoite"
   end
 
-  factory :m do
-    gym_id 1
-    user_id 1
+  factory :move do
+    name "penkki"
+    description "pena"
+  end
+
+  factory :result do
+    weight 10
+    reps 10
+  end
+
+  factory :result2 do
+    weight 10
+    reps 10
   end
 end
