@@ -130,6 +130,7 @@
         1,
         35,
         null,
+        null,
         null
       ],
       "/home/ilari/gymtracker/app/controllers/memberships_controller.rb": [
@@ -299,6 +300,7 @@
         4,
         4,
         4,
+        4,
         null,
         null,
         null,
@@ -415,18 +417,19 @@
         1,
         2,
         2,
+        0,
+        0,
+        null,
+        4,
         2,
-        1,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
         2,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
         2,
         2,
         4,
@@ -514,6 +517,8 @@
         null,
         1,
         1,
+        null,
+        5,
         null
       ],
       "/home/ilari/gymtracker/app/controllers/sessions_controller.rb": [
@@ -544,6 +549,6 @@
 
       ]
     },
-    "timestamp": 1494751237
+    "timestamp": 1494755872
   }
 }
