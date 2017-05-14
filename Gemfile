@@ -32,6 +32,8 @@ gem 'bootstrap-sass'
 # gem 'capistrano-rails', group: :development
 
 group :test do
+  gem 'coveralls', require: false
+  gem 'simplecov', require: false
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
