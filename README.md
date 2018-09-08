@@ -10,7 +10,7 @@ Gymtracker is an app for weightlifters to keep score about their results and to 
 
 ### Instructions
 
-To start using gymtracker, you need to create an account first by clicking sign up. Then sign in to access the application. After that you can add new gyms or new moves from their index pages. To add a new result, open up a sub menu by clicking your username in the navigation bar and then click 'New result'. You can join a gym the same way, or directly from a gym's page. Click results to see how your results compare against the average results of all users, or see if you have the max weight of a lift! To check other users's results, click on 'Users'.
+To start using gymtracker, you need to create an account first by clicking sign up. Then sign in to access the application. After that you can add new gyms or new moves from their index pages. To add a new result, open up a sub menu by clicking your username in the navigation bar and then click 'New result'. You can join a gym the same way, or directly from a gym's page. Click results to see how your results compare against the average results of all users, or see if you have the max weight of a lift! To check other users' results, click on 'Users'.
 
 ### Class diagram
 ![ClassDiagram](https://github.com/laitilari/gymtracker/blob/master/classDiagram.png)
